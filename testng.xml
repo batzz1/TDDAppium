@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Test Suite" parallel="false">
+    <test name="Test">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="platformVersion" value="9.0"/>
+        <parameter name="deviceName" value="Any Name"/>
+    </test>
+</suite>
