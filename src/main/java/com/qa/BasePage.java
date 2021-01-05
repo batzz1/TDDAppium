@@ -2,24 +2,28 @@ package com.qa;
 
 import com.qa.utils.TestUtils;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
     protected AndroidDriver driver;
 
     public BasePage(AndroidDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(this.driver, TestUtils.WAIT);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     //Mobile Actions
 
     /**
      * Performs tap
+     *
      * @param element
      */
     public void tap(WebElement element) {
@@ -28,6 +32,7 @@ public class BasePage {
 
     /**
      * Write Text
+     *
      * @param element
      * @param text
      */
@@ -38,9 +43,8 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-    public void getAttribute(WebElement element,String attribute){
-        waitForElementToBeVisible(element);
-        element.getAttribute(attribute);
+    public String getText(WebElement element) {
+        return waitForElementToBeVisible(element).getText();
     }
 
     public WebElement waitForElementToBeVisible(WebElement element) {

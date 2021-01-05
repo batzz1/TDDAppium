@@ -3,6 +3,7 @@ package com.qa;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -47,6 +48,11 @@ public class TestBase {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @AfterTest
+    public void afterTest() {
+        driver.quit();
     }
 
 
