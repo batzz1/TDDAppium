@@ -1,6 +1,7 @@
 package com.qa;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeTest;
 
 import java.io.File;
@@ -22,7 +23,14 @@ public class TestBase {
             fileInputStream = new FileInputStream(filePath);
             properties.load(fileInputStream);
 
-            
+            //Desired CAPS
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("","");
+            capabilities.setCapability("","");
+            capabilities.setCapability("","");
+            capabilities.setCapability("","");
+            capabilities.setCapability("","");
+
 
         } catch (Exception e) {
             e.printStackTrace();
